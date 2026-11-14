@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlantic Auto Sales</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f5f6;--surface:#fff;--ink:#0c2b40;--muted:#4b6272;--line:#cfdbe1;--sea:#0c2b40;--on-sea:#eaf2f5;--accent:#f2b705;--on-accent:#0c2b40;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081b29;--surface:#0f2a3d;--ink:#e6eff3;--muted:#9bb2c0;--line:#1f4058;--sea:#05121c;--on-sea:#e6eff3}}
+:root[data-theme="dark"]{--bg:#081b29;--surface:#0f2a3d;--ink:#e6eff3;--muted:#9bb2c0;--line:#1f4058;--sea:#05121c;--on-sea:#e6eff3}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 Barlow,system-ui,sans-serif}
+h1,h2,h3{font-family:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;text-transform:none;margin:0;line-height:1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.top{background:var(--sea);color:var(--on-sea)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:900 28px "Big Shoulders Display",Impact,sans-serif;text-decoration:none;letter-spacing:.01em}
+nav a{margin-left:22px;text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover{text-decoration:underline}
+.hero{background:var(--sea);color:var(--on-sea);padding:64px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(56px,12vw,150px);font-weight:900;letter-spacing:0;max-width:10ch;text-transform:uppercase;line-height:.92}
+.hero p{max-width:46ch;font-size:19px;color:#b9cfdb;margin:22px 0 28px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:14px 24px;border-radius:4px;font-weight:600;text-decoration:none;border:0;font:600 17px Barlow,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor;margin-left:10px}
+.road{display:block;width:100%;height:auto;margin-top:34px}
+section{padding:72px 0}
+h2{font-size:clamp(40px,6vw,68px);font-weight:900;text-transform:uppercase;margin-bottom:12px}
+.lede{color:var(--muted);max-width:56ch;margin:0 0 28px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:8px 18px;font:500 16px Barlow,sans-serif;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.car{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.car svg{display:block;width:100%;height:auto;background:linear-gradient(var(--line),var(--surface))}
+.car .b{padding:18px 20px 22px}
+.car h3{font-size:24px;font-weight:800;font-stretch:85%}
+.car .meta{color:var(--muted);font-size:15px;margin:6px 0 14px}
+.car .price{font:800 32px "Big Shoulders Display",Impact,sans-serif}
+.tag{float:right;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:600;padding:3px 10px;border-radius:3px}
+.why{background:var(--surface);border-block:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;margin-top:34px}
+.cols h3{font-size:22px;font-weight:800;font-stretch:85%;margin-bottom:8px}
+.cols p{margin:0;color:var(--muted)}
+.visit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px}
+dl{margin:0}dt{font-weight:600;margin-top:16px}dd{margin:2px 0 0;color:var(--muted)}
+label{display:block;font-weight:500;margin:14px 0 6px;font-size:15px}
+input,select,textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink);font:400 17px Barlow,sans-serif}
+#msg{margin-top:14px;font-weight:600;min-height:1.6em}
+footer{background:var(--sea);color:var(--on-sea);padding:28px 0;font-size:14px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="logo" href="#top">Atlantic Auto Sales</a>
+<nav><a href="#inventory">Inventory</a><a href="#why">Why us</a><a href="#visit">Visit</a></nav></div></header>
+
+<div class="hero" id="top"><div class="wrap">
+<h1>Good cars. Fair prices. No games.</h1>
+<p>Atlantic Auto Sales sells inspected used cars, trucks and SUVs to families and commuters. Come in, drive one, and decide on your own time.</p>
+<a class="btn" href="#inventory">Browse inventory</a><a class="btn ghost" href="#visit">Book a test drive</a>
+<svg class="road" viewBox="0 0 1080 120" role="img" aria-label="Car driving along the coast road">
+<path d="M0 96 Q180 78 360 92 T720 88 T1080 90 V120 H0Z" fill="#163f5a"/>
+<rect y="104" width="1080" height="16" fill="#05121c"/>
+<path d="M0 112 H1080" stroke="#f2b705" stroke-width="2" stroke-dasharray="26 22"/>
+<g transform="translate(610 54)"><path d="M0 40 L6 22 Q10 14 20 12 L52 10 Q64 0 90 2 Q112 4 122 20 L142 24 Q150 28 150 40Z" fill="#f2b705"/>
+<path d="M62 12 Q72 4 90 6 Q104 8 112 20 H60Z" fill="#0c2b40"/><circle cx="36" cy="42" r="12" fill="#05121c" stroke="#eaf2f5" stroke-width="3"/><circle cx="116" cy="42" r="12" fill="#05121c" stroke="#eaf2f5" stroke-width="3"/></g>
+</svg></div></div>
+
+<section id="inventory"><div class="wrap">
+<h2>On the lot now</h2>
+<p class="lede">Every vehicle gets a multi-point inspection and a clean history report before it’s listed. Sample listings shown.</p>
+<div class="filters" role="group" aria-label="Filter by type">
+<button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="sedan">Sedans</button><button aria-pressed="false" data-f="suv">SUVs</button><button aria-pressed="false" data-f="truck">Trucks</button></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section class="why" id="why"><div class="wrap">
+<h2>What you can count on</h2>
+<div class="cols">
+<div><h3>Inspected before listing</h3><p>Brakes, tires, fluids and engine are checked by our technicians, and you can read the report.</p></div>
+<div><h3>One price, posted</h3><p>The price on the windshield is the price we talk about. Fees are explained up front.</p></div>
+<div><h3>Financing that fits</h3><p>We work with local lenders and credit unions, including for first-time buyers. Bring your trade-in too.</p></div>
+</div></div></section>
+
+<section id="visit"><div class="wrap visit">
+<div><h2>Visit the lot</h2>
+<p class="lede">Walk-ins are welcome. Call ahead if you want a specific car pulled up front.</p>
+<dl><dt>Address</dt><dd>12401 Ocean Gateway, Ocean City, MD 21842</dd>
+<dt>Phone</dt><dd><a href="tel:+14102139443">(410) 213-9443</a></dd>
+<dt>Hours</dt><dd>Mon–Fri 8am–5pm<br>Sat–Sun closed</dd></dl></div>
+<div><h2>Book a test drive</h2>
+<label for="n">Your name</label><input id="n" autocomplete="name">
+<label for="p">Phone number</label><input id="p" type="tel" autocomplete="tel">
+<label for="c">Vehicle</label><select id="c"></select>
+<p style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px"><button class="btn" id="send">Request test drive</button><a class="btn ghost" href="tel:+14102139443" style="margin:0">Call now: (410) 213-9443</a></p>
+<div id="msg" role="status"></div></div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Atlantic Auto Sales. All rights reserved.</div></footer>
+
+<script>
+var cars=[
+["2021 Honda Accord EX","sedan","38,400 mi · Automatic · Gas","$21,995","#6b8ea3","Just in"],
+["2019 Toyota Camry SE","sedan","52,100 mi · Automatic · Gas","$17,450","#a33b3b",""],
+["2020 Subaru Outback","suv","44,900 mi · AWD · Gas","$24,800","#3f6b4f",""],
+["2018 Ford Explorer XLT","suv","71,300 mi · 4WD · Gas","$18,990","#2b3a4a",""],
+["2020 Ford F-150 XLT","truck","49,600 mi · 4WD · Gas","$31,500","#d9dde0","Just in"],
+["2019 Chevrolet Silverado","truck","58,200 mi · 4WD · Gas","$28,750","#5a5f66",""]];
+var grid=document.getElementById('grid'),sel=document.getElementById('c');
+function art(col){return '<svg viewBox="0 0 300 130" aria-hidden="true"><ellipse cx="150" cy="112" rx="120" ry="6" fill="rgba(0,0,0,.18)"/><path d="M30 98 L38 70 Q44 58 62 56 L110 52 Q130 30 170 32 Q208 34 222 56 L254 62 Q270 68 270 98Z" fill="'+col+'"/><path d="M120 54 Q138 38 168 40 Q196 42 208 56Z" fill="#0c2b40" opacity=".85"/><circle cx="80" cy="100" r="18" fill="#111"/><circle cx="80" cy="100" r="8" fill="#bcc7ce"/><circle cx="222" cy="100" r="18" fill="#111"/><circle cx="222" cy="100" r="8" fill="#bcc7ce"/></svg>'}
+function render(f){grid.innerHTML=cars.filter(function(c){return f==='all'||c[1]===f}).map(function(c){return '<article class="car">'+art(c[4])+'<div class="b">'+(c[5]?'<span class="tag">'+c[5]+'</span>':'')+'<h3>'+c[0]+'</h3><div class="meta">'+c[2]+'</div><div class="price">'+c[3]+'</div></div></article>'}).join('')}
+sel.innerHTML='<option>Not sure yet</option>'+cars.map(function(c){return '<option>'+c[0]+'</option>'}).join('');
+render('all');
+document.querySelectorAll('.filters button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');render(b.dataset.f)}});
+document.getElementById('send').onclick=function(){var m=document.getElementById('msg');var n=document.getElementById('n').value.trim(),p=document.getElementById('p').value.trim();
+var d={name:n,phone:p,car:document.getElementById('c').value};
+if(!n||!p){m.textContent='Enter your name and phone number so we can call you back.';return}
+/* BACKEND GOES HERE: send the object d (name, phone, car) to your server */
+m.textContent='Thanks, '+n+'. Online requests are not connected yet, so please tap Call now to book your test drive.'};
+</script>
+</body>
+</html>
