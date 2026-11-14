@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlantic Auto Sales</title>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
+.car img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+  <style>
 :root{--bg:#f1f5f6;--surface:#fff;--ink:#0c2b40;--muted:#4b6272;--line:#cfdbe1;--sea:#0c2b40;--on-sea:#eaf2f5;--accent:#f2b705;--on-accent:#0c2b40;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081b29;--surface:#0f2a3d;--ink:#e6eff3;--muted:#9bb2c0;--line:#1f4058;--sea:#05121c;--on-sea:#e6eff3}}
 :root[data-theme="dark"]{--bg:#081b29;--surface:#0f2a3d;--ink:#e6eff3;--muted:#9bb2c0;--line:#1f4058;--sea:#05121c;--on-sea:#e6eff3}
@@ -103,7 +104,7 @@ footer{background:var(--sea);color:var(--on-sea);padding:28px 0;font-size:14px}
 
 <script>
 var cars=[
-["2021 Honda Accord EX","sedan","38,400 mi · Automatic · Gas","$18,550","#6b8ea3","Just in"],
+["2021 Honda Accord EX","sedan","38,400 mi · Automatic · Gas","$18,550","#6b8ea3","Just in","accord.jpg"],
 ["2019 Toyota Camry SE","sedan","52,100 mi · Automatic · Gas","$17,450","#a33b3b",""],
 ["2020 Subaru Outback","suv","44,900 mi · AWD · Gas","$24,800","#3f6b4f",""],
 ["2018 Ford Explorer XLT","suv","71,300 mi · 4WD · Gas","$18,990","#2b3a4a",""],
@@ -111,7 +112,7 @@ var cars=[
 ["2019 Chevrolet Silverado","truck","58,200 mi · 4WD · Gas","$28,750","#5a5f66",""]];
 var grid=document.getElementById('grid'),sel=document.getElementById('c');
 function art(col){return '<svg viewBox="0 0 300 130" aria-hidden="true"><ellipse cx="150" cy="112" rx="120" ry="6" fill="rgba(0,0,0,.18)"/><path d="M30 98 L38 70 Q44 58 62 56 L110 52 Q130 30 170 32 Q208 34 222 56 L254 62 Q270 68 270 98Z" fill="'+col+'"/><path d="M120 54 Q138 38 168 40 Q196 42 208 56Z" fill="#0c2b40" opacity=".85"/><circle cx="80" cy="100" r="18" fill="#111"/><circle cx="80" cy="100" r="8" fill="#bcc7ce"/><circle cx="222" cy="100" r="18" fill="#111"/><circle cx="222" cy="100" r="8" fill="#bcc7ce"/></svg>'}
-function render(f){grid.innerHTML=cars.filter(function(c){return f==='all'||c[1]===f}).map(function(c){return '<article class="car">'+art(c[4])+'<div class="b">'+(c[5]?'<span class="tag">'+c[5]+'</span>':'')+'<h3>'+c[0]+'</h3><div class="meta">'+c[2]+'</div><div class="price">'+c[3]+'</div></div></article>'}).join('')}
+function render(f){grid.innerHTML=cars.filter(function(c){return f==='all'||c[1]===f}).map(function(c){return '<article class="car">'+(c[6]?'<img src="'+c[6]+'" alt="'+c[0]+'">':art(c[4]))+'<div class="b">'+(c[5]?'<span class="tag">'+c[5]+'</span>':'')+'<h3>'+c[0]+'</h3><div class="meta">'+c[2]+'</div><div class="price">'+c[3]+'</div></div></article>'}).join('')}
 sel.innerHTML='<option>Not sure yet</option>'+cars.map(function(c){return '<option>'+c[0]+'</option>'}).join('');
 render('all');
 document.querySelectorAll('.filters button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');render(b.dataset.f)}});
